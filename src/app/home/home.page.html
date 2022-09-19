@@ -1,34 +1,38 @@
 <!-- https://youtu.be/gDiDi2SgHfY -->
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <div id="appName">
+    <ion-label>Weather Forcast</ion-label>
+  </div>
+  <ion-searchbar animated></ion-searchbar>
+  <ion-card class="cardStyle">
     <ion-item lines="none">
       <p>Today's Report &nbsp;</p>
         <ion-label slot="end">{{ todayDate | date: "EEE dd MMM" }}</ion-label>
       </ion-item>
     
     <ion-item lines="none">
-      <span>
+      <span class="temp">
       {{ (weatherTemp?.temp - 273.15).toFixed(0) }}
     </span>
-    <span>°</span>
+    <span class="temp">°</span>
     <img slot="end" [src]=weatherIcon alt="Icon">
     </ion-item>
     <ion-item>
-      <ion-icon name="location"></ion-icon>
+      <ion-icon id="locationIcon" name="location"></ion-icon>
       <span>{{ cityName }}</span>
     </ion-item>
 
   </ion-card>
 
-  <ion-card>
-    <ion-item>
-      <span>Maximum Temp</span>
-      <span slot="end">{{ (weatherTemp.temp_max - 273.15).toFixed(0)}}</span>
-    </ion-item>
+    <ion-card class="cardStyle">
+      <ion-item>
+        <span>Maximum Temp</span>
+        <span slot="end">{{ (weatherTemp.temp_max - 273.15).toFixed(0) }}</span>
+      </ion-item>
     <ion-item>
       <span>Minimum Temp</span>
       <span slot="end">{{ (weatherTemp.temp_min - 273.15).toFixed(0) }}</span>
