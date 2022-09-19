@@ -7,7 +7,8 @@
   <div id="appName">
     <ion-label>Weather Forcast</ion-label>
   </div>
-  <ion-searchbar class="searchBar" animated></ion-searchbar>
+  <ion-searchbar [(ngModel)]="cityName" (ngModelChange)="loadData()" placeholder="Search for city" class="searchBar" animated></ion-searchbar>
+<div *ngIf="!loading">
   <ion-card class="cardStyle">
     <ion-item lines="none">
       <p>Today's Report &nbsp;</p>
@@ -42,4 +43,10 @@
       <span slot="end">{{ weatherTemp.humidity }}</span>
     </ion-item>
   </ion-card>
+</div>
+
+<div *ngIf="loading" class="noData">
+  <img src="../../assets/pic2.png" alt="">
+  <span>No data</span>
+</div>
 </ion-content>
